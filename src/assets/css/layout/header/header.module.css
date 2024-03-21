@@ -1,0 +1,73 @@
+@keyframes animationCloud {
+    0%{
+        transform: rotate(20deg);
+    }
+    30% {
+        transform: translate(290px);
+    }
+    60% {
+        transform: translate(290px, 90px);
+    }
+    80% {
+        transform: rotate(-20deg) translate(0px, 90px);
+    }
+    90% {
+        transform: translate(0px);
+    }
+}
+
+.header {
+    width: 100%;
+    position: relative;
+}
+
+.header_tittle > h1 {
+    font-size: 4rem;
+    font-family: "Purple Purse", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #fff;
+    margin-left: 7rem;
+    margin-top: -2rem;
+}
+
+.header_time {
+    position: absolute;
+    right: 5rem;
+    bottom: 1rem;
+}
+
+.header_time > p {
+    font-size: 2rem;
+    color: #fff;
+    font-family: "Mooli", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.header_img > img {
+    animation: animationCloud forwards 20s infinite;
+}
+
+@media (max-width: 500px) {
+    .header_time {
+        display: none;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 10rem;
+    }
+
+    .header_tittle > h1 {
+        font-size: 2rem;
+        margin: 0;
+    }
+
+    .header_img > img {
+        animation: none;
+        position: static;
+    }
+}
