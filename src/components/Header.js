@@ -1,5 +1,5 @@
 import imgLogo from "../assets/img/cloud.png"
-import style from "../assets/css/layout//header/header.module.css"
+import style from "../assets/css/components/header/header.module.css"
 
 function Header() {
     return(
