@@ -1,7 +1,7 @@
 import imgLogo from "../assets/img/cloud.png"
 import style from "../assets/css/components/header/header.module.css"
 
-function Header({ hour, minutes, seconds }) {
+function Header({ hour, minutes }) {
     return(
         <header className={style.header}>
             <div className={style.header_img}>
@@ -13,7 +13,7 @@ function Header({ hour, minutes, seconds }) {
             </div>
 
             <div className={style.header_time}>
-                <p>{hour}:{minutes}:{seconds}</p>
+                <p>{hour}:{minutes}</p>
             </div>
 
         </header>

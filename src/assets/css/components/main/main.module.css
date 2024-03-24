@@ -109,6 +109,10 @@ input[type="search"]::-webkit-search-cancel-button {
     margin-right: -1.5rem;
 }
 
+#cloud_icon {
+    margin-left: -1rem;
+}
+
 .characteristics {
     display: flex;
     position: absolute;

@@ -3,10 +3,9 @@ import style from "../assets/css/components/main/main.module.css"
 import iconSerch from "../assets/img/icon _search.png";
 import { FaLocationDot } from "react-icons/fa6";
 import { CiTempHigh } from "react-icons/ci";
-import { FaCloud } from "react-icons/fa";
 
 
-function Main({ cityName, temperature, data, humidity, visiblity, airPressure, wind }) {
+function Main({ icon, cityName, temperature, day, month, year, humidity, visiblity, airPressure, wind }) {
     return(
         <main className={style.main}>
             <div className={style.background_image}>
@@ -30,11 +29,11 @@ function Main({ cityName, temperature, data, humidity, visiblity, airPressure, w
                     <div className={style.temp}>
                         <CiTempHigh id={style.temp_icon} />
                         <p>{temperature}°C</p>
-                        <FaCloud />
+                        <img id={style.cloud_icon} src={`http://openweathermap.org/img/wn/${icon}.png`} alt=""></img>
                     </div>
 
                     <div className={style.data}>
-                        <p>{data}</p>
+                        <p>{day} {month}, {year}</p>
                     </div>
 
                     <div className={style.characteristics}>
