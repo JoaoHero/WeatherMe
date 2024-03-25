@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+### Weather Me
+Aplicação web que fornece informações climáticas com base na localização atual do usuário ou em uma cidade ou país especificado. A aplicação é construída em React e segue uma arquitetura cliente-servidor.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##Tecnologias Utilizadas
+Frontend: React
+Backend: Node.js (com Express.js)
+API de Geolocalização: Google Maps Geolocation API
+API de Previsão do Tempo: OpenWeatherMap
 
-## Available Scripts
+##Funcionalidades
+Localização Atual: A aplicação utiliza a geolocalização do navegador do usuário para determinar sua localização atual e exibir as informações climáticas correspondentes.
 
-In the project directory, you can run:
+Pesquisa por Cidade ou País: O usuário pode pesquisar por uma cidade ou país específico para obter informações climáticas sobre esse local.
 
-### `npm start`
+Exibição de Imagem do Local: Ao pesquisar por uma cidade ou país, a aplicação carrega uma imagem representativa do local como fundo.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+##Arquitetura
+A aplicação segue uma arquitetura cliente-servidor, onde o frontend é responsável pela interface do usuário e a interação com o backend para obter os dados necessários.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+##Frontend
+O frontend é construído em React e é responsável por:
 
-### `npm test`
+Exibir a interface do usuário, incluindo campos de pesquisa e visualização das informações climáticas.
+Utilizar a API de geolocalização para obter a localização atual do usuário.
+Enviar solicitações ao backend para obter informações climáticas com base na geolocalização ou nas consultas do usuário.
+Exibir as informações climáticas recebidas do backend, juntamente com a imagem do local correspondente.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+##Backend
 
-### `npm run build`
+O backend é construído em Node.js, utilizando o framework Express.js, e é responsável por:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Receber solicitações do frontend para obter informações climáticas.
+Processar essas solicitações, fazendo chamadas à API de previsão do tempo e obtendo os dados necessários.
+Gerenciar as chamadas à API de terceiros, lidando com autenticação, manipulação de erros e tratamento de resposta.
+Enviar os dados climáticos processados de volta ao frontend para exibição.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Link: https://github.com/JoaoHero/weather_me_api
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Demonstração:
 
-### `npm run eject`
+![WeatherMe](https://github.com/JoaoHero/WeatherMe/assets/101435425/868f015d-d67c-4ff7-80ca-ef96cc14476d)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
