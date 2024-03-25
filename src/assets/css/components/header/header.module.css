@@ -19,6 +19,7 @@
 .header {
     width: 100%;
     position: relative;
+    z-index: 1;
 }
 
 .header_tittle > h1 {
