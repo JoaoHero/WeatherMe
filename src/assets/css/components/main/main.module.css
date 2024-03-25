@@ -1,12 +1,31 @@
 .main {
-    height: auto;
+    height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 15rem;
+    position: relative;
+    margin-top: -10.5rem;
 }
+
+.backgroudImage {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    overflow: hidden;
+}
+
+.backgroudImage > img {
+    width: 100%;
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+} 
 
 .main_wrapper {
     width: 90%;
@@ -165,6 +184,10 @@ input[type="search"]::-webkit-search-cancel-button {
         height: 50rem;
     }
 
+    .backgroudImage > img {
+        height: 100%;
+    }
+
     .data {
         left: 8rem;
         top: 15rem;
@@ -191,6 +214,10 @@ input[type="search"]::-webkit-search-cancel-button {
         height: 80rem;
         width: 100%;
         margin: 5rem auto;
+    }
+
+    .backgroudImage > img {
+        display: none;
     }
 
     .background_image {

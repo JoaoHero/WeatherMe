@@ -25,6 +25,10 @@ function Main({ icon, cityName, temperature, day, month, year, humidity, visibil
 
     return(
         <main className={style.main}>
+            <div className={style.backgroudImage}>
+                <img src="https://images.unsplash.com/photo-1585486941571-f1ea9c56a2b4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w1ODI5OTF8MHwxfHNlYXJjaHwxfHxub3J1ZWdhfGVufDB8fHx8MTcxMTMzNjM2Nnww&ixlib=rb-4.0.3&q=85" />
+            </div>
+            
             <div className={style.main_wrapper}>
                 <form onSubmit={handleClick}>
                     <div className={style.form_wrapper}>
