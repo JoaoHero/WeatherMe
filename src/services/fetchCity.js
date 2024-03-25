@@ -6,27 +6,40 @@ async function fetchCity(cityName) {
     };
 
     // Criando a chamada fetch
-    fetch("http://localhost:8080/weatherCity", {
+    const response = await fetch("http://localhost:8080/weatherCity", {
         method: 'POST',
         headers: { 
             'Content-Type': 'application/json' 
         },
         body: JSON.stringify(city),
-    }).then((response) => response.json()).then((jsonBody) => {
-        // Atribuindo o erro informado do servidor a uma variável
-        const error = jsonBody.error;
-        // Atribuindo a mensagem informada pelo servidor a uma variável
-        const message = jsonBody.message;
-        // Atribuindo o nome do usuário informado pelo servidor a uma variável
-        const name = jsonBody.name;
+    })
 
-        console.log(error)
-        console.log(message)
-        console.log(name)
+    const data = await response.json()
 
-    }).catch((err) => {
-        console.log(err)
-    });
+    const error = data.error
+    const message = data.message
+
+    if(error) {
+        return { error: true, message: message }
+    }
+
+    const name = data.weatherResult.name
+    const temp = data.weatherResult.main.temp
+    const humidity = data.weatherResult.main.humidity
+    const airPressure = data.weatherResult.main.pressure
+    const visibility = data.weatherResult.visibility
+    const windSpeed = data.weatherResult.wind.speed
+
+    const cityWeatherInformation = {
+        cityName: name,
+        cityTemp: temp,
+        humidity: humidity,
+        airPressure: airPressure,
+        visibility: visibility,
+        windSpeed: windSpeed
+    };
+
+    return cityWeatherInformation
 };
 
 export default fetchCity

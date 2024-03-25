@@ -7,21 +7,21 @@ import fetchTime from "./services/fetchTime"
 
 function App() {
 
-  const [weatherIcon, setWeatherIcon] = useState("");
-  const [cityName, setCityName] = useState("");
-  const [cityTemp, setCityTemp] = useState("");
-  const [cityHumidity, setCityHumidity] = useState("");
-  const [cityAirPressure, setCityAirPressure] = useState("");
-  const [cityVisibility, setCityVisibility] = useState("");
-  const [cityWindSpeed, setCityWindSpeed] = useState("");
+  const [weatherIcon, setWeatherIcon] = useState("")
+  const [cityName, setCityName] = useState("")
+  const [cityTemp, setCityTemp] = useState("")
+  const [cityHumidity, setCityHumidity] = useState("")
+  const [cityAirPressure, setCityAirPressure] = useState("")
+  const [cityVisibility, setCityVisibility] = useState("")
+  const [cityWindSpeed, setCityWindSpeed] = useState("")
 
-  const [time, setTime] = useState({ hour: 0, minutes: 0 });
-  const [date, setDate] = useState({ day: 0, month: 0, year: 0 });
+  const [time, setTime] = useState({ hour: 0, minutes: 0 })
+  const [date, setDate] = useState({ day: 0, month: 0, year: 0 })
   
   useEffect(() => {
     const fetchData = async () => {
         try {
-            const { latitude, longitude } = await getLocality();
+            const { latitude, longitude } = await getLocality()
 
             fetch('http://localhost:8080/userWeatherLocation', {
               method: 'POST',
@@ -29,10 +29,8 @@ function App() {
                 'Content-Type': 'application/json'
               },
               body: JSON.stringify({ userLatitude: latitude, userLongitude: longitude })
-            })
-            .then(response => response.json()).then(data => {
+            }).then(response => response.json()).then(data => {
               setWeatherIcon(data.weatherResult.weather[0]["icon"])
-              setCityName(data.weatherResult.name)
               setCityName(data.weatherResult.name)
               setCityTemp(data.weatherResult.main.temp)
               setCityHumidity(data.weatherResult.main.humidity) 
@@ -42,12 +40,12 @@ function App() {
             })
             .catch(error => console.error('Error:', error));
         } catch (error) {
-            console.error('Erro ao obter a localização:', error);
+            return { error: error, message: "Erro ao obter a localização"}
         }
-    };
+    }
 
-    fetchData();
-  }, []);
+    fetchData()
+  }, [])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -59,19 +57,19 @@ function App() {
             setTime(response.time)
             setDate(response.date)
         } catch (error) {
-            console.error('Erro ao obter a hora:', error);
+            return {error: error, message: "Erro ao obter a hora"}
         }
-    };
+    }
 
-    fetchData();
-  }, []);
+    fetchData()
+  }, [])
 
   return (
     <Container>
       <Header hour={time.hour} minutes={time.minutes} />
       <Main icon={weatherIcon} cityName={cityName} temperature={cityTemp}  day={date.day} month={date.month} year={date.year} humidity={cityHumidity} visiblity={cityVisibility} airPressure={cityAirPressure} wind={cityWindSpeed} />
     </Container>
-  );
+  )
 }
 
 export default App;
