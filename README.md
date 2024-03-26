@@ -5,7 +5,7 @@ Aplicação web que fornece informações climáticas com base na localização 
 Frontend: React
 Backend: Node.js (com Express.js)
 API de Geolocalização: Google Maps Geolocation API
-API de Previsão do Tempo: #### OpenWeatherMap
+API de Previsão do Tempo: ### OpenWeatherMap
 
 ## Funcionalidades
 ### Localização Atual: A aplicação utiliza a geolocalização do navegador do usuário para determinar sua localização atual e exibir as informações climáticas correspondentes.
