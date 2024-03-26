@@ -8,11 +8,11 @@ API de Geolocalização: Google Maps Geolocation API
 API de Previsão do Tempo: OpenWeatherMap
 
 ## Funcionalidades
-Localização Atual: A aplicação utiliza a geolocalização do navegador do usuário para determinar sua localização atual e exibir as informações climáticas correspondentes.
+# Localização Atual: A aplicação utiliza a geolocalização do navegador do usuário para determinar sua localização atual e exibir as informações climáticas correspondentes.
 
-Pesquisa por Cidade ou País: O usuário pode pesquisar por uma cidade ou país específico para obter informações climáticas sobre esse local.
+# Pesquisa por Cidade ou País: O usuário pode pesquisar por uma cidade ou país específico para obter informações climáticas sobre esse local.
 
-Exibição de Imagem do Local: Ao pesquisar por uma cidade ou país, a aplicação carrega uma imagem representativa do local como fundo.
+# Exibição de Imagem do Local: Ao pesquisar por uma cidade ou país, a aplicação carrega uma imagem representativa do local como fundo.
 
 ## Arquitetura
 A aplicação segue uma arquitetura cliente-servidor, onde o frontend é responsável pela interface do usuário e a interação com o backend para obter os dados necessários.
