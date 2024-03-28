@@ -29,6 +29,7 @@ async function fetchCity(cityName) {
     const airPressure = data.weatherResult.main.pressure
     const visibility = data.weatherResult.visibility
     const windSpeed = data.weatherResult.wind.speed
+    const icon = data.weatherResult.weather[0].icon
 
     const cityWeatherInformation = {
         cityName: name,
@@ -36,7 +37,8 @@ async function fetchCity(cityName) {
         humidity: humidity,
         airPressure: airPressure,
         visibility: visibility,
-        windSpeed: windSpeed
+        windSpeed: windSpeed,
+        icon: icon
     };
 
     return cityWeatherInformation

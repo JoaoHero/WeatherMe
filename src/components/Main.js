@@ -5,11 +5,28 @@ import { FaLocationDot } from "react-icons/fa6";
 import { CiTempHigh } from "react-icons/ci";
 import { useState } from "react";
 import fetchCity from "../services/fetchCity"
+import displayCityPhotos from "../utils/getBackgroundImage"
+import { useEffect } from "react";
 
 function Main({ icon, cityName, temperature, day, month, year, humidity, visibility, airPressure, wind }) {
 
     const [cityNameSearched, setCityNameSearched] = useState("")
     const [cityWeather, setCityWeather] = useState(null)
+    const [backgroundImage, setBackgroundImage] = useState("")
+
+    useEffect(() => {
+        const fetchBackgroundImage = async () => {
+            try {
+                const backgroundUrl = await displayCityPhotos(cityName);
+                setBackgroundImage(backgroundUrl);
+            } catch (error) {
+                console.error('Erro ao buscar imagem:', error);
+            }
+        };
+
+        fetchBackgroundImage();
+
+    }, [cityName]);
 
     async function handleClick(event) {
         event.preventDefault()
@@ -20,14 +37,16 @@ function Main({ icon, cityName, temperature, day, month, year, humidity, visibil
             return { error: true, message: "Cidade não localizada"}
         }
 
+        const backgroundUrl = await displayCityPhotos(cityNameSearched)
+
+        setBackgroundImage(backgroundUrl)
+
         return setCityWeather(result)
     };
 
     return(
         <main className={style.main}>
-            <div className={style.backgroudImage}>
-                <img src="https://images.unsplash.com/photo-1585486941571-f1ea9c56a2b4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w1ODI5OTF8MHwxfHNlYXJjaHwxfHxub3J1ZWdhfGVufDB8fHx8MTcxMTMzNjM2Nnww&ixlib=rb-4.0.3&q=85" />
-            </div>
+            <div className={style.backgroudImage} style={{ backgroundImage: `url(${backgroundImage})` }}></div>
             
             <div className={style.main_wrapper}>
                 <form onSubmit={handleClick}>
@@ -52,7 +71,7 @@ function Main({ icon, cityName, temperature, day, month, year, humidity, visibil
                                     <div className={style.temp}>
                                         <CiTempHigh id={style.temp_icon} />
                                         <p>{cityWeather.cityTemp}°C</p>
-                                        <img id={style.cloud_icon} src={`http://openweathermap.org/img/wn/${icon}.png`} alt=""></img>
+                                        <img id={style.cloud_icon} src={`http://openweathermap.org/img/wn/${cityWeather.icon}.png`} alt=""></img>
                                     </div>
 
                                     <div className={style.data}>
