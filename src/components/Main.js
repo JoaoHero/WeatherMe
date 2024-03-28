@@ -1,12 +1,12 @@
 import style from "../assets/css/components/main/main.module.css"
 
-import iconSerch from "../assets/img/icon _search.png";
-import { FaLocationDot } from "react-icons/fa6";
-import { CiTempHigh } from "react-icons/ci";
-import { useState } from "react";
+import iconSerch from "../assets/img/icon _search.png"
+import { FaLocationDot } from "react-icons/fa6"
+import { CiTempHigh } from "react-icons/ci"
+import { useState } from "react"
 import fetchCity from "../services/fetchCity"
 import displayCityPhotos from "../utils/getBackgroundImage"
-import { useEffect } from "react";
+import { useEffect } from "react"
 
 function Main({ icon, cityName, temperature, day, month, year, humidity, visibility, airPressure, wind }) {
 
@@ -20,18 +20,18 @@ function Main({ icon, cityName, temperature, day, month, year, humidity, visibil
                 const backgroundUrl = await displayCityPhotos(cityName);
                 setBackgroundImage(backgroundUrl);
             } catch (error) {
-                console.error('Erro ao buscar imagem:', error);
+                console.error('Erro ao buscar imagem:', error)
             }
         };
 
-        fetchBackgroundImage();
+        fetchBackgroundImage()
 
-    }, [cityName]);
+    }, [cityName])
 
     async function handleClick(event) {
         event.preventDefault()
 
-        const result = await fetchCity(cityNameSearched);
+        const result = await fetchCity(cityNameSearched)
 
         if(result.error) {
             return { error: true, message: "Cidade não localizada"}

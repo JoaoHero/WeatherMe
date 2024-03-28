@@ -4,17 +4,17 @@ function getLocality() {
 
         navigator.geolocation.getCurrentPosition(
             async function (position) {
-                const latitude = position.coords.latitude;
-                const longitude = position.coords.longitude;
-                localStorage.setItem('latitude', latitude);
-                localStorage.setItem('longitude', longitude);
+                const latitude = position.coords.latitude
+                const longitude = position.coords.longitude
+                localStorage.setItem('latitude', latitude)
+                localStorage.setItem('longitude', longitude)
 
                 resolve({ latitude, longitude })
             },
             function (error) {
-                const { latitude, longitude } = defaultLocation;
-                localStorage.setItem('latitude', latitude);
-                localStorage.setItem('longitude', longitude);
+                const { latitude, longitude } = defaultLocation
+                localStorage.setItem('latitude', latitude)
+                localStorage.setItem('longitude', longitude)
                 // Se ocorrer um erro, resolva a promessa com o valor padrão
                 resolve(defaultLocation)
             }
